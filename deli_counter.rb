@@ -4,31 +4,33 @@ katz_deli = ["Amanda", "Annette", "Ruchi", "Jason", "Logan", "Spencer", "Avi", "
 
 
 
-def line(katz_deli)
-   
-    if katz_deli.empty? 
+deli = []
+
+def line(array)
+    new_array = []
+    if array.empty?
         puts "The line is currently empty."
     else
-        current_line = "The line is currently:"
-        katz_deli.each.with_index(1) do |customer, position|
-            current_line << " #{position}. #{customer}"
-        end 
-    puts current_line
+        sentence = "The line is currently: "
+        array.each.with_index(1) do |customer, index| 
+            new_array << "#{index}. #{customer}"   
+        end
+        puts sentence + new_array.join(" ")
     end
 end
 
-def take_a_number (katz_deli, new_customer)
-    katz_deli.push(new_customer)
-    puts "Welcome, #{new_customer}. You are number #{katz_deli.index(new_customer) + 1} in line."
-end 
+
+def take_a_number(array, customer)
+    array.push(customer) 
+    puts "Welcome, #{customer}. You are number #{array.index(customer) + 1} in line."
+end
 
 
-
-def now_serving(katz_deli)
-    if katz_deli.empty?
+def now_serving(array)
+    if array.empty?
         puts "There is nobody waiting to be served!"
     else
-        customer = katz_deli.shift 
-        puts "Currently serving #{customer}."
-    end 
-end 
+        now_serving = array.shift
+        puts "Currently serving #{now_serving}."
+    end
+end
